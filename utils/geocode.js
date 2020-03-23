@@ -11,17 +11,13 @@ const geocode = (address, callback) => {
                 callback('Unable to find location', undefined)
         } else {
             callback(undefined, {
-                lat: response.body.features[0].center[0],
-                lng: response.body.features[0].center[1],
-                loc: response.body.features[0].place_name
+                latitude: response.body.features[0].center[0],
+                longitude: response.body.features[0].center[1],
+                location: response.body.features[0].place_name
             })
         }
     })
 }
 
-geocode('NYC', (error, data) => {
-    console.log('Error', error)
-    console.log('Data', data)
-})
 
 module.exports = geocode
